@@ -9,8 +9,6 @@ const Product = require('../models/product');
  */
 const getAllProducts = async (req, res) => {
     try {
-        console.log('get all');
-        
         const products = await Product.find().exec();
 
         res.status(200).json(products);
@@ -78,8 +76,6 @@ const searchProducts = async (req, res) => {
  */
 const createProduct = async (req, res) => {
     try {
-        console.log('xxxxxxx');
-        
         const newProduct = new Product({
             _id: new mongoose.Types.ObjectId(),
             name: req.body.name,
