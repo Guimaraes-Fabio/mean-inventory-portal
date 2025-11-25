@@ -1,0 +1,8 @@
+@if(messages.length > 0) {
+    <div class="alert alert-danger">
+        @for(m of messages; track m) {
+            <span>{{m}}</span>
+        }        
+    </div>
+}
+

@@ -1,0 +1,49 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // --------------------------
+      // NODE SERVER: npm run dev
+      // --------------------------
+      "name": "Node Server (npm run dev)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "cwd": "${workspaceFolder}/JWTServer",
+      "console": "integratedTerminal",
+      "restart": true
+    },
+    {
+      // --------------------------
+      // ANGULAR: ng serve
+      // --------------------------
+      "name": "Angular (ng serve)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "ng",
+      "runtimeArgs": [
+        "serve",
+        "--open"
+      ],
+      "cwd": "${workspaceFolder}/JWTClient",
+      "console": "integratedTerminal"
+    }
+  ],
+  // --------------------------
+  // COMPOUND: RUN BOTH
+  // --------------------------
+  "compounds": [
+    {
+      "name": "Full Stack (Node + Angular)",
+      "configurations": [
+        "Node Server (npm run dev)",
+        "Angular (ng serve)"
+      ],
+      "stopAll": true
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+POST http://localhost:3000/api/vendors HTTP/1.1
+content-type: application/json
+
+{
+    "name": "ACME Industries",
+    "address": "1234 Mountain Road",
+    "city": "Moncton",
+    "district": "New Brunswick",
+    "country":"Canada",
+    "active": true,
+    "minOrderValue":1000
+}
+
+###
+GET http://localhost:3000/api/vendors HTTP/1.11

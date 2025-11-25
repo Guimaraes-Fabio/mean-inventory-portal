@@ -1,0 +1,108 @@
+@if(!loadingProduct) {
+<h2 style="text-align: center;">{{product.id ? 'Product Mainteance' : 'Create a Product'}}</h2>
+}
+
+@if(loadingProduct) {
+<app-activity message="Loading Product..."></app-activity>
+}
+
+@if(!loadingProduct) {
+<form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+    <input type="hidden" name="id" [(ngModel)]="product.id" #id="ngModel">
+    <div class="form-group">
+        <label for="name">Product Name</label>
+        @if((
+            name.hasError('required') ||
+            name.hasError('minlength') ||
+            name.hasError('maxlength')
+        ) && form.submitted){
+            <i [title]="
+            name.hasError('required') ? 'Name is required':   
+            name.hasError('minlength') ? 'Minimum length for Product Name is ' + name.getError('minlength').requiredLength : ''" 
+            class="fas fa-exclamation-circle err">
+            </i>
+        }
+
+        <input [(ngModel)]="product.name" required minlength="3" maxlength="50" #name="ngModel" name="name" type="text"
+            class="form-control" placeholder="Product Name">
+
+    </div>
+    <div class="form-group">
+        <label for="shortDescription">Short Description</label>
+
+        @if((
+            shortDescription.hasError('required') ||
+            shortDescription.hasError('minlength') ||
+            shortDescription.hasError('maxlength')
+        )
+        && form.submitted) {
+            <i [title]="
+            shortDescription.hasError('required') ? 'Short description is required':   
+            shortDescription.hasError('minlength') 
+            ? 'Minimum length for short description is ' + shortDescription.getError('minlength').requiredLength : ''" 
+            class="fas fa-exclamation-circle err"></i>
+        }
+
+        <input required minlength="5" maxlength="255" [(ngModel)]="product.shortDescription" #shortDescription="ngModel"
+            type="text" class="form-control" name="shortDescription" placeholder="Short Description">
+    </div>
+    <div class="form-group">
+        <label for="longDescription">Long Description</label>
+
+        @if((
+            longDescription.hasError('required') ||
+            longDescription.hasError('minlength') ||
+            longDescription.hasError('maxlength')
+        ) && form.submitted) {
+            <i [title]="
+            longDescription.hasError('required') ? 'Long description is required':   
+            longDescription.hasError('minlength') ? 
+            'Minimum length for long description is ' + longDescription.getError('minlength').requiredLength : ''" 
+            class="fas fa-exclamation-circle err"></i>
+        }
+
+        <input required minlength="5" maxlength="512" [(ngModel)]="product.longDescription" #longDescription="ngModel"
+            type="text" class="form-control" name="longDescription" placeholder="Long Description">
+    </div>
+    <div class="form-group">
+        <label for="price">Price</label>
+
+        @if((
+            price.getError('required') ||
+            price.getError('min')
+         ) && form.submitted) {
+            <i [title]="
+            price.hasError('required') ? 'Long description is required':   
+            price.hasError('min') ? 'Minimum value for price is ' + price.getError('min').min : ''" 
+            class="fas fa-exclamation-circle err"></i>
+        }
+        
+        <input min="0.01" required [(ngModel)]="product.price" #price="ngModel" type="number" class="form-control"
+            name="price" placeholder="Price">
+    </div>
+    <div class="form-group">
+        <label for="salePrice">Sale Price</label>
+        <input [(ngModel)]="product.salePrice" #salePrice="ngModel" type="number" class="form-control" name="salePrice"
+            placeholder="Price">
+    </div>
+    <div class="form-group">
+        <label for="check">
+            OnSale
+            <input type="checkbox" id="check" #onSale="ngModel" name="onSale" [(ngModel)]="product.onSale" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="qty">Quantity</label>
+        <input [(ngModel)]="product.qty" #qty="ngModel" name="qty" type="number" class="form-control" name="qty"
+            placeholder="Qty">
+    </div>
+    <button class="btn btn-primary">{{button}}</button> <i class="fas fa-cog fa-spin ml-2" *ngIf="productSaving"></i>
+</form>
+}
+
+<div>
+    {{saveMessage}}
+</div>
+
+<!--Errors-->
+<app-errors [messages]="messages"></app-errors>

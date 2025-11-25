@@ -1,0 +1,56 @@
+@if(showCreate) {
+    <div class="text-center">
+        <button class="btn btn-primary" routerLink="/products/create">Create a Product</button>
+    </div>
+}
+
+@if(products.length > 0) {
+<div>Number of products: {{products.length}}<strong></strong></div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Short Description</th>
+            <th scope="col">Long Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Sale Price</th>
+            <th scope="col">On Sale</th>
+            <th scope="col">Qty</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--Loop Products-->
+        <tr *ngFor="let product of products">
+            <td scope="row">{{product.name}}</td>
+            <td scope="row">{{product.shortDescription}}</td>
+            <td scope="row">{{product.longDescription}}</td>
+            <td scope="row">{{product.price | currency }}</td>
+            <td scope="row">{{product.salePrice | currency }}</td>            
+            <td scope="row">
+                <!--Set this checkbox using onSale-->
+                <input type="checkbox" readonly [checked]="product.onSale" />
+            </td>
+            <td scope="row">{{product.qty}}</td>
+            <td scope="row">
+                <!--Link to Details Component-->
+                <a routerLink="/products/detail/{{product.id}}" class="btn btn-primary">Details</a>
+            </td>
+            <td scope="row">
+                <!--Add click event to call deleteProduct-->
+                <button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+}
+
+@if(deletingProduct) {
+    <h3 class="text-center">
+        <i class="fas fa-cog fa-spin fa-3x"></i><br />
+        Deleting...
+    </h3>
+}
+
+<app-errors [messages]="messages"></app-errors>

@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  font-family: "Montserrat", sans-serif;
+  color: rgb(126, 126, 126);
+}
+.fa-angular {
+  color: #d81616;
+}
+
+.fa-node-js {
+  color: #68a70f;
+}
+
+.fa-leaf {
+  color: #046d0d;
+}
+
+.fa-cog {
+  color: #4e80dd;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.container {
+  margin: auto;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+input {
+  max-width: 100%;
+}
+
+.err {
+  color: red;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+input[type="checkbox"].form-control {
+  width: 50px !important;
+}
+
+i.l {
+  padding-left: 5px;
+  margin-top: 5px;
+}
+
+.openModal:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+}
+
+body .modal {
+  display: flex !important;
+  height: 100%;
+}
+
+body .modal .modal-dialog {
+  margin: auto;
+}
+
+* {
+  
+}

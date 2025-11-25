@@ -1,0 +1,17 @@
+<h1 class="text-center">Product List</h1>
+
+@if(loadingProducts) {
+    <app-activity message="Loading Products..."></app-activity>
+}
+
+@if(products.length == 0 && !loadingProducts && messages.length == 0){
+    <div class="alert alert-danger" role="alert">
+        No products found
+    </div>
+}
+
+<!--Product Table Component goes here-->
+<app-product-table [products]="products"></app-product-table>
+
+<!--Errors-->
+<app-errors [messages]="messages"></app-errors>

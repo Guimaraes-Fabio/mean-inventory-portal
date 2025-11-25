@@ -1,0 +1,25 @@
+POST http://localhost:4300/api/auth/signup
+Content-Type: application/json
+
+{
+    "username":"Chris",
+    "password":"qwe123"
+}
+
+###
+POST http://localhost:4300/api/auth/login
+Content-Type: application/json
+
+{
+    "username":"Chris",
+    "password":"qwe123"
+}
+
+###
+POST http://localhost:4300/api/auth/login
+Content-Type: application/json
+
+{
+    "username":"Chris",
+    "password":"qwe1234"
+}

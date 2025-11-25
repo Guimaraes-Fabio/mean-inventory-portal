@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
+  <a class="navbar-brand" href="#"><i class="fab fa-angular"></i>&nbsp;<i class="fab fa-node-js"></i>&nbsp;<i
+      class="fas fa-leaf"></i> WMAD MEAN STACK</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+
+        <!--Home Link-->
+        <a class="nav-link" routerLink="/"><i class="fas fa-home"></i> Home</a>
+
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="far fa-clipboard"></i> Products
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!--Product List Link-->
+          <a class="dropdown-item" routerLink="/products"><i class="fas fa-list"></i> Products List</a>
+
+          <!--Product Create Link-->
+          <a class="dropdown-item" routerLink="/products/create"><i class="fas fa-plus"></i>
+            Create</a>
+
+          <div class="dropdown-divider"></div>
+
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" routerLink=""><i class="fas fa-unlock"></i>
+          Log out</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-pen-nib"></i> Contribute
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+          <!--Sign up Link-->
+          <a class="nav-link" routerLink="/signup"><i class="fas fa-user-plus"></i> Sign up</a>
+
+          <!--Login Link-->
+          <a class="nav-link" routerLink="/login"><i class="fas fa-lock"></i> Login</a>
+        </div>
+      </li>
+      <span class="navbar-text">
+        <strong>Welcome {{username}}</strong>
+      </span>
+    </ul>
+  </div>
+</nav>
+
+<div class="mt-30 p-10 container">
+  <!--Add router outlet here-->
+  <router-outlet></router-outlet>
+</div>
+
+<app-error-modal [errors]="errorMessages" [show]="showError"></app-error-modal>
