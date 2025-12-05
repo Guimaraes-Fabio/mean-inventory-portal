@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-center">
+            <h5>Login</h5>
+        </div>
+        <form class="col-form" #form="ngForm" (ngSubmit)="onLogin(form)">
+            <div class="card-body form-group">
+                <label for="">User name</label>
+                <input type="text" class="form-control" ngModel name="username" #username="ngModel" required>
+
+                <label for="">Password</label>
+                <input type="password" class="form-control" ngModel #password="ngModel" name="password" required>
+                <span>Don't have an account? <a routerLink="/signup">Sign up</a>.</span>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary" [disabled]="progress || form.invalid">Login</button>
+            </div>            
+        </form>
+    </div>
+
+    @if(progress) {
+        <app-activity message="Logging in..."></app-activity>
+    }
+
+    <div class="mt-5">
+        <app-errors [messages]="errors"></app-errors>
+    </div>
+</div>

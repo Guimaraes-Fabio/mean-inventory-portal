@@ -1,5 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkNocmlzIiwiaWQiOiI2OTI1OWJiN2ZlZmY0NjkwNmZlMzVhZmQiLCJpYXQiOjE3NjQwNzI2MTYsImV4cCI6MTc2NDA3NjIxNn0.sZLVQ9u1drEbNi-MiUOpD5sBeDO58I4Xpf1BRrhit_A
-
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkNocmlzIiwiaWQiOiI2OTI1ZmUwMTQwNTVlYTJmNmU1MGQxMjEiLCJpYXQiOjE3NjQwOTc2MzUsImV4cCI6MTc2NDEwMTIzNX0.wDNYxIRC_dV9mP1H4nXK9U0bLzzpBvmQ7YRgWkXkx5M
 ###
 POST http://localhost:4300/api/products
 Authorization: Bearer {{token}}
@@ -67,15 +66,8 @@ Content-Type: application/json
 
 ###
 GET http://localhost:4300/api/products
-Authorization: Bearer {{token}}
 
 ###
-@id=abc
+@id=6925fef24055ea2f6e50d12d
 
 GET http://localhost:4300/api/products/{{id}}
-
-###
-GET http://localhost:4300/api/products/search/MX
-
-###
-GET http://localhost:4300/api/products/search/129.99

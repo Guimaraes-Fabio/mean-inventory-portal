@@ -1,1 +1,25 @@
-<p>signup works!</p>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-center">
+            <h5>Create a new account</h5>
+        </div>
+        <form class="col-form" #form="ngForm" (ngSubmit)="signUp(form)">
+            <div class="card-body form-group">
+                <label for="">User name</label>
+                <input type="text" class="form-control" ngModel name="username" #username="ngModel" required>
+
+                <label for="">Password</label>
+                <input type="password" class="form-control" ngModel #password="ngModel" name="password" required>
+                <span>Already have an account? <a routerLink="/login">Login</a>.</span>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary" [disabled]="form.invalid || progress">Sign Up</button>
+            </div>
+        </form>
+    </div>
+
+    @if(progress){
+        <app-activity message="Creating account..."></app-activity>
+    }
+
+</div>

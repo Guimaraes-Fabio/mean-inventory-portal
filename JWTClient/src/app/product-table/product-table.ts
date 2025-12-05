@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Product } from '../models/product';
 import { ProductService } from '../services/product-service';
 import { Subject, takeUntil } from 'rxjs';
+import { AuthenticationService } from '../auth/services/authentication-service';
 
 @Component({
   selector: 'app-product-table',
@@ -15,10 +16,14 @@ export class ProductTable implements OnInit, OnDestroy {
   deletingProduct: boolean = false;
   messages: string[] = [];
   showCreate: boolean = false;
-  
+  userIsAuthenticated: boolean = false;
+
   private destroy$ = new Subject<void>();
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private authService: AuthenticationService
+  ) { }
 
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -26,7 +31,7 @@ export class ProductTable implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
+    this.userIsAuthenticated = this.authService.getIsAuthenticated();
   }
 
   deleteProduct(id: String) {

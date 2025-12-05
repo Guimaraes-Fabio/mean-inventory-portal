@@ -17,31 +17,31 @@ router.get('/:id', pause, ProductController.getProduct);
 /**
  * Create a new product
  */
-//router.post('/', auth, pause, ProductController.createProduct);
+router.post('/', auth, pause, ProductController.createProduct);
 
 /**
  * Save changes to a product
  */
-//router.patch('/:id', auth, pause, ProductController.saveProduct);
+router.patch('/:id', auth, pause, ProductController.saveProduct);
 
 /**
  * Delete a product
  */
-//router.delete('/:id', auth, pause, ProductController.deleteProduct);
+router.delete('/:id', auth, pause, ProductController.deleteProduct);
 
 /**
  * Create a new product
  */
-router.post('/', pause, ProductController.createProduct);
+// router.post('/', pause, ProductController.createProduct);
 
 /**
  * Save changes to a product
  */
-router.patch('/:id', pause, ProductController.saveProduct);
+// router.patch('/:id', pause, ProductController.saveProduct);
 
 /**
  * Delete a product
  */
-router.delete('/:id', pause, ProductController.deleteProduct);
+// router.delete('/:id', pause, ProductController.deleteProduct);
 
 module.exports = router;

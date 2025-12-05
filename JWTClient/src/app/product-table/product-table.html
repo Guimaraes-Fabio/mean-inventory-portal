@@ -16,8 +16,11 @@
             <th scope="col">Sale Price</th>
             <th scope="col">On Sale</th>
             <th scope="col">Qty</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+
+            @if(userIsAuthenticated) {
+                <th scope="col"></th>
+                <th scope="col"></th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -33,14 +36,17 @@
                 <input type="checkbox" readonly [checked]="product.onSale" />
             </td>
             <td scope="row">{{product.qty}}</td>
-            <td scope="row">
-                <!--Link to Details Component-->
-                <a routerLink="/products/detail/{{product.id}}" class="btn btn-primary">Details</a>
-            </td>
-            <td scope="row">
-                <!--Add click event to call deleteProduct-->
-                <button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
-            </td>
+
+            @if(userIsAuthenticated) {
+                <td scope="row">
+                    <!--Link to Details Component-->
+                    <a routerLink="/products/detail/{{product.id}}" class="btn btn-primary">Details</a>
+                </td>
+                <td scope="row">
+                    <!--Add click event to call deleteProduct-->
+                    <button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
+                </td>
+            }
         </tr>
     </tbody>
 </table>
