@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "env-cmd -f ./config/dev.env.json -- nodemon src/server.js -e js,env"
+    "dev": "env-cmd -f ./config/dev.env.json -- nodemon src/server.js -e js,env",
+    "start": "node -e \"const fs = require('fs'); if (process.env.PRIVATE_KEY) { fs.mkdirSync('src/auth', { recursive: true }); fs.writeFileSync('src/auth/private.key', process.env.PRIVATE_KEY.replace(/\\\\n/g, '\\n')); }\" && node src/server.js"
   },
   "author": "",
   "license": "ISC",
