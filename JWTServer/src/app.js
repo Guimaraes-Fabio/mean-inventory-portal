@@ -7,13 +7,11 @@ const productRoute = require('./routers/product.router');
 const vendorRoute = require('./routers/vendor.router');
 const userRouter = require('./routers/user.router');
 
-
 //Connect to MongoDB
 require('./db/mongoose');
 
 app.use(express.json());
 
-//CORS Enabled
 // Strict CORS Configuration (The VIP List)
 const corsOptions = {
   origin: [
@@ -27,9 +25,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); 
-
-app.use(cors(corsOptions));
+app.options('/*', cors(corsOptions)); 
 
 //routes
 app.use('/api/customers', customerRoute);
