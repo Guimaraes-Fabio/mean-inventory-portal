@@ -25,8 +25,12 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+// app.get('/', (req, res) => {
+//     res.send('The MEAN Stack API is live and routing perfectly!');
+// });
+
 app.get('/', (req, res) => {
-    res.send('The MEAN Stack API is live and routing perfectly!');
+    res.status(200).json({ status: 'ok', message: 'API is live' });
 });
 
 //routes
