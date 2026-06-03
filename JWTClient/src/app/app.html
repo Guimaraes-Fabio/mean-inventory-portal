@@ -35,7 +35,7 @@
       </li>
       @if(userIsAuthenticated) {
         <li class="nav-item dropdown">
-            <a class="nav-link" routerLink=""><i class="fas fa-unlock"></i>
+            <a class="nav-link" routerLink="" (click)="logOut()"><i class="fas fa-unlock"></i>
               Log out</a>
         </li>
       }
