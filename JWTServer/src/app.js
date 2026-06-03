@@ -20,10 +20,14 @@ const corsOptions = {
     'http://localhost:4200', 
     'https://mean-inventory-portal.vercel.app'
   ],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', 
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization'], 
   credentials: true,                       
   optionsSuccessStatus: 200 
 };
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); 
 
 app.use(cors(corsOptions));
 
