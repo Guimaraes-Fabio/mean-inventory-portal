@@ -14,7 +14,16 @@ require('./db/mongoose');
 app.use(express.json());
 
 //CORS Enabled
-app.use(cors());
+// Strict CORS Configuration (The VIP List)
+const corsOptions = {
+  origin: [
+    'http://localhost:4200', 
+    'https://mean-inventory-portal.vercel.app'
+  ],
+  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+};
+
+app.use(cors(corsOptions));
 
 //routes
 app.use('/api/customers', customerRoute);
