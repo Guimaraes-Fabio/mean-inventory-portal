@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  private readonly API_URL: string = 'http://localhost:4300';
+  private readonly API_URL: string = 'https://inventorymanagementapi-6ha93cui.b4a.run';
 
   constructor(private http: HttpClient) {
   }

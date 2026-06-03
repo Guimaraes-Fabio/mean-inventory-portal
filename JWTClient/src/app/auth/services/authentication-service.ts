@@ -11,7 +11,7 @@ import { LoggedIn } from '../../models/logged-in';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private readonly API_URL: string = 'http://localhost:4300';
+  private readonly API_URL: string = 'https://inventorymanagementapi-6ha93cui.b4a.run';
   private tokenTimer: any;
   private isAuthenticated: boolean = false;
   private username?: string;
