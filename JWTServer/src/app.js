@@ -12,19 +12,22 @@ require('./db/mongoose');
 
 app.use(express.json());
 
-// Strict CORS Configuration (The VIP List)
+// Dynamic CORS Configuration: Automatically accepts any origin
 const corsOptions = {
-  origin: [
-    'http://localhost:4200', 
-    'https://mean-inventory-portal.vercel.app'
-  ],
+  origin: function (origin, callback) {
+    callback(null, true);
+  },
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'], 
-  allowedHeaders: ['Content-Type', 'Authorization'], 
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'], 
   credentials: true,                       
   optionsSuccessStatus: 200 
 };
 
 app.use(cors(corsOptions));
+
+app.get('/', (req, res) => {
+    res.send('The MEAN Stack API is live and routing perfectly!');
+});
 
 //routes
 app.use('/api/customers', customerRoute);
