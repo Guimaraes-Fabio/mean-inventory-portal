@@ -11,7 +11,7 @@ import { LoggedIn } from '../../models/logged-in';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private readonly API_URL: string = 'https://mean-inventory-portal-4i7b.vercel.app/';
+  private readonly API_URL: string = 'https://mean-inventory-portal-4i7b.vercel.app';
   private tokenTimer: any;
   private isAuthenticated: boolean = false;
   private username?: string;
