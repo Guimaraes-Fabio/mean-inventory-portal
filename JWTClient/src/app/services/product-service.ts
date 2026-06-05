@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  private readonly API_URL: string = 'https://inventorymanagementapi-hb380pm7.b4a.run';
+  private readonly API_URL: string = 'https://mean-inventory-portal-4i7b.vercel.app/';
 
   constructor(private http: HttpClient) {
   }
